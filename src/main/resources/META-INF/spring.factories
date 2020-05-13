@@ -1,0 +1,6 @@
+
+org.springframework.context.ApplicationContextInitializer=\
+com.itzjx.StarterApplicationContextInitializer
+
+org.springframework.context.ApplicationListener=\
+com.itzjx.StarterApplicationListener

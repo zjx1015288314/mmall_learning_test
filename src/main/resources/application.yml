@@ -1,0 +1,50 @@
+#服务器端口号
+server:
+  port: 8088
+spring:
+  servlet:
+    #文件上传
+    multipart:
+      enabled: true
+      max-file-size: 10MB #单个文件限制
+      max-request-size: 10MB   #请求总文件大小限制
+  ########-spring datasource-########
+  datasource:
+    #账号配置
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mmall_learning?serverTimezone=Asia/Shanghai
+    username: root
+    password: zjx19950426.
+    #hikari数据库连接池
+    hikari:
+      minimum-idle: 5 #最小空闲连接数量
+      idle-timeout: 180000 #空闲连接存活最大时间，默认600000（10分钟）
+      maximum-pool-size: 10 #连接池最大连接数，默认是10
+      auto-commit: true  #此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      max-lifetime: 1800000 #此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      connection-timeout: 30000 #数据库连接超时时间,默认30秒，即30000
+      connection-test-query: SELECT 1
+    type: com.zaxxer.hikari.HikariDataSource
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  #登录验证需要的AOP
+  aop:
+    auto: true
+    proxy-target-class: true #基于类的cglib代理
+#日志配置
+logging:
+  config:
+    classpath: logback.xml
+# 整合mybatis
+mybatis:
+  type-aliases-package: com.itzjx.dao
+  mapper-locations: classpath:mappers/*.xml
+
+
+
+
+
+
